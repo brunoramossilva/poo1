@@ -1,15 +1,12 @@
 class Animal:
-    nome = ''
-    raca = ''
-    vacinacao = False
+    def __init__(self, nome, raca):
+        self.nome = nome
+        self.raca = raca
+        self.vacinacao = False
 
-toby = Animal()
-toby.nome = 'Toby'
-toby.raca = 'Vira-lata'
+    def __str__(self):
+            return f'O nome do animal é {self.nome}, da raça {self.raca}.'
 
-mel = Animal()
-mel.nome = 'Mel'
-mel.raca = 'Gata'
+toby = Animal('Toby', 'Vira-lata')
 
-print(vars(toby))
-print(f'O nome do cachorro é {toby.nome} e ele é da raça {toby.raca}')
+print(toby)
