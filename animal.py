@@ -20,16 +20,21 @@ class Animal:
     @property
     def vacinacao(self):
         return 'Vacinado(a)' if self._vacinacao else 'Não Vacinado(a)'
+    
+    def alternar_status_vacinacao(self):
+        self._vacinacao = not self._vacinacao
 
 def criando_animal():
-    animal = [animal.strip() for animal in input('Digite o nome e a raça do '
-    'animal separados por vírgula: ').split(',')]
-    return Animal(*animal)
+    pergunta = input('Deseja criar um novo animal? (Y/N): ')
+    if pergunta.lower() == 'y':
+        animal = [animal.strip() for animal in input('Digite o nome e a raça do '
+        'animal separados por vírgula: ').split(',')]
+        return Animal(*animal)
 
 toby = Animal('Toby', 'Vira-lata')
 mel = Animal('Mel', 'Gata')
 Saddam = Animal('Saddam', 'Vira-lata')
-Saddam._vacinacao = True
+Saddam.alternar_status_vacinacao()
 Pandinha = Animal('Pandinha', 'Chihuahua')
 criando_animal()
 
