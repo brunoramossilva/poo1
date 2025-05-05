@@ -27,15 +27,15 @@ class Animal:
 def criando_animal():
     pergunta = input('Deseja criar um novo animal? (Y/N): ')
     if pergunta.lower() == 'y':
-        animal = [animal.strip() for animal in input('Digite o nome e a raça do '
-        'animal separados por vírgula: ').split(',')]
+        animal = (animal.strip() for animal in input('Digite o nome e a raça do animal ' \
+        'separados por uma vírgula: ').split(','))
         return Animal(*animal)
 
-toby = Animal('Toby', 'Vira-lata')
+""" toby = Animal('Toby', 'Vira-lata')
 mel = Animal('Mel', 'Gata')
 Saddam = Animal('Saddam', 'Vira-lata')
 Saddam.alternar_status_vacinacao()
 Pandinha = Animal('Pandinha', 'Chihuahua')
 criando_animal()
 
-Animal.listar_animais()
+Animal.listar_animais() """
