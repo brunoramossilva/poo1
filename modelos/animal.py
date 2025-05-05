@@ -8,7 +8,7 @@ class Animal:
         self._nome = nome.title()
         self._raca = raca.title()
         self._vacinacao = False
-        self.responsavel = []
+        self._responsavel = []
         Animal.animais.append(self)
 
     @classmethod
@@ -27,12 +27,18 @@ class Animal:
     def alternar_status_vacinacao(self):
         self._vacinacao = not self._vacinacao
 
+
+    def definir_responsavel(self, nome, telefone):
+        responsavel = Responsavel(nome, telefone)
+        self._responsavel.append(responsavel)
+
 def criando_animal():
     pergunta = input('Deseja criar um novo animal? (Y/N): ')
     if pergunta.lower() == 'y':
         animal = (animal.strip() for animal in input('Digite o nome e a raça do animal ' \
         'separados por uma vírgula: ').split(','))
         return Animal(*animal)
+
 
 """ toby = Animal('Toby', 'Vira-lata')
 mel = Animal('Mel', 'Gata')
