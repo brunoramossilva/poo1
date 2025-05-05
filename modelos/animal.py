@@ -1,3 +1,5 @@
+from modelos.responsaveis import Responsavel
+
 class Animal:
 
     animais = []
@@ -6,6 +8,7 @@ class Animal:
         self._nome = nome.title()
         self._raca = raca.title()
         self._vacinacao = False
+        self.responsavel = []
         Animal.animais.append(self)
 
     @classmethod
