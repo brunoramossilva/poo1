@@ -1,4 +1,4 @@
 class Responsavel:
-    def __init__(self, nome, telefone):
+    def __init__(self, nome, idade):
         self._nome = nome
-        self._telefone = telefone
+        self._idade = idade

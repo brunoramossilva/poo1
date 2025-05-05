@@ -28,9 +28,17 @@ class Animal:
         self._vacinacao = not self._vacinacao
 
 
-    def definir_responsavel(self, nome, telefone):
-        responsavel = Responsavel(nome, telefone)
+    def definir_responsavel(self, nome, idade):
+        responsavel = Responsavel(nome, idade)
         self._responsavel.append(responsavel)
+
+    def media_idades(self):
+        if not self._responsavel:
+            return 0
+        soma_das_idades = sum(responsavel._idade for responsavel in self._responsavel)
+        quantidade_das_idades = len(self._responsavel)
+        media = round(soma_das_idades / quantidade_das_idades, 1)
+        return media
 
 def criando_animal():
     pergunta = input('Deseja criar um novo animal? (Y/N): ')
