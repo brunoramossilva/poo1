@@ -13,12 +13,12 @@ class Animal:
 
     @classmethod
     def listar_animais(cls):
-        print('-' * 85)
-        print(f'| {'# Nome do Animal #'.ljust(25)} | {'# Raça do Animal #'.ljust(25)} | {'# Status de Vacinação #'.ljust(25)} |')
-        print('-' * 85)
+        print('-' * 128)
+        print(f'| {'# Nome do Animal #'.ljust(25)} | {'# Raça do Animal #'.ljust(25)} | {'# Status de Vacinação #'.ljust(25)} | {'# Média das Idades dos Responsáveis #'.ljust(25)} |')
+        print('-' * 128)
         for animal in cls.animais:
-            print(f'| {animal._nome.ljust(25)} | {animal._raca.ljust(25)} | {animal.vacinacao.ljust(25)} |')
-            print('-' * 85)
+            print(f'| {animal._nome.ljust(25)} | {animal._raca.ljust(25)} | {animal.vacinacao.ljust(25)} | {str(animal.media_idades).ljust(37)} |')
+            print('-' * 128)
 
     @property
     def vacinacao(self):
@@ -32,6 +32,7 @@ class Animal:
         responsavel = Responsavel(nome, idade)
         self._responsavel.append(responsavel)
 
+    @property
     def media_idades(self):
         if not self._responsavel:
             return 0

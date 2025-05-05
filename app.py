@@ -3,10 +3,10 @@ from modelos.animal import Animal
 toby = Animal('Toby', 'Vira-lata')
 mel = Animal('Mel', 'Gata')
 
-toby.definir_responsavel('Bruno', '21')
-toby.definir_responsavel('Edna', '57')
+toby.definir_responsavel('Bruno', 21)
+toby.definir_responsavel('Edna', 57)
 
-mel.definir_responsavel('Felipe', '28')
+mel.definir_responsavel('Felipe', 28)
 
 
 def main():
