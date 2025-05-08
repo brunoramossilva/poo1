@@ -2,10 +2,10 @@ from modelos.animal import Animal
 
 toby = Animal('Toby', 'Vira-lata')
 mel = Animal('Mel', 'Gata')
+pipoca = Animal('Pipoca', 'Golden retriever')
 
 toby.definir_responsavel('Bruno', 21)
 toby.definir_responsavel('Edna', 57)
-
 mel.definir_responsavel('Felipe', 28)
 
 

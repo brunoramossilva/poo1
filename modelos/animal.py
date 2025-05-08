@@ -11,14 +11,19 @@ class Animal:
         self._responsavel = []
         Animal.animais.append(self)
 
+    def definir_responsavel(self, nome, idade):
+        responsavel = Responsavel(nome, idade)
+        self._responsavel.append(responsavel)
+
     @classmethod
     def listar_animais(cls):
-        print('-' * 128)
-        print(f'| {'# Nome do Animal #'.ljust(25)} | {'# Raça do Animal #'.ljust(25)} | {'# Status de Vacinação #'.ljust(25)} | {'# Média das Idades dos Responsáveis #'.ljust(25)} |')
-        print('-' * 128)
+        tam_linha = 153
+        print('-' * tam_linha)
+        print(f'| {'# Nome do Animal #'.ljust(25)} | {'# Raça do Animal #'.ljust(25)} | {'# Status de Vacinação #'.ljust(25)} | {'# Responsáveis #'.ljust(25)} | {'# Média das Idades dos Responsáveis #'.ljust(25)} |')
+        print('-' * tam_linha)
         for animal in cls.animais:
-            print(f'| {animal._nome.ljust(25)} | {animal._raca.ljust(25)} | {animal.vacinacao.ljust(25)} | {str(animal.media_idades).ljust(37)} |')
-            print('-' * 128)
+            print(f'| {animal._nome.ljust(25)} | {animal._raca.ljust(25)} | {animal.vacinacao.ljust(25)} | {animal.responsaveis.ljust(25)} | {str(animal.media_idades).ljust(37)} |')
+            print('-' * tam_linha)
 
     @property
     def vacinacao(self):
@@ -27,15 +32,17 @@ class Animal:
     def alternar_status_vacinacao(self):
         self._vacinacao = not self._vacinacao
 
-
-    def definir_responsavel(self, nome, idade):
-        responsavel = Responsavel(nome, idade)
-        self._responsavel.append(responsavel)
+    @property
+    def responsaveis(self):
+        if not self._responsavel:
+            return "Não há responsáveis"
+        responsaveis = [responsavel._nome for responsavel in self._responsavel]
+        return ", ".join(responsaveis)
 
     @property
     def media_idades(self):
         if not self._responsavel:
-            return 0
+            return "N/A"
         soma_das_idades = sum(responsavel._idade for responsavel in self._responsavel)
         quantidade_das_idades = len(self._responsavel)
         media = round(soma_das_idades / quantidade_das_idades, 1)
